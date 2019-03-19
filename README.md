@@ -12,3 +12,7 @@ Notes:
 - not many cathegorical labels for semantic segmentation (seems like it has only two classes "building" and "non-building")
 
 - decent amount of data, can be tiled into 11136 images of (256, 256, 3) resolution
+
+## Tools:
+
+Great library with helpers and prebuilt models (including imagenet trained weights for them) at [Segmentation Models](https://github.com/qubvel/segmentation_models).
