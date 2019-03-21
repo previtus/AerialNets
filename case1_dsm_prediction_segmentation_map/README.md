@@ -5,16 +5,10 @@ Download dataset: [Topcoder Urban Mapper 3D](https://community.topcoder.com/long
 Change path in DatasetHandler.py accordingly.
 In train.py choose if we care about the DSM or the semantic segmentation (in this case we have just 2 reasonable classes - building and not-building)
 
-run:
+run:  ` python3 train.py `
 
-python3 train.py
+then you can use the trained model to predict with: ` python3 inference.py `
 
-then you can use the trained model to predict with:
-
-python3 inference.py
-
-or 
-
-python3 inference_from_outside_data.py
+or: ` python3 inference_from_outside_data.py `
 
 
