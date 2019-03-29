@@ -1,12 +1,10 @@
 import os
-import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from Debugger import Debugger
 from skimage import io
 from tqdm import tqdm
 from keras.utils import to_categorical
-from scipy import ndimage
 import re
 from skimage.transform import resize
 

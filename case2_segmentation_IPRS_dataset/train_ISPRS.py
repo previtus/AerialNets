@@ -55,12 +55,12 @@ if learn_dsm:
 model.compile('Adam', loss=bce_jaccard_loss, metrics=[iou_score])
 
 #model.summary()
-
+EPOCHS = 20
 history = model.fit(
     x=x_train,
     y=y_train,
     batch_size=8, # 32 froze while doing some other stufffs
-    epochs=15,
+    epochs=EPOCHS,
     validation_data=(x_val, y_val),
 )
 
@@ -68,7 +68,7 @@ mode_name = "SemSeg"
 special_name = "111only0.2dataset"
 if learn_dsm:
    mode_name = "DSM"
-model.save("model_UNet-Resnet34_" + mode_name + "_95percOfTrain_8batch_15ep"+special_name+".h5")
+model.save("model_UNet-Resnet34_" + mode_name + "_95percOfTrain_8batch_"+str(EPOCHS)+"ep"+special_name+".h5")
 
 
-dataset.debugger.nice_plot_history(history, show=False, save=True, name="model_UNet-Resnet34_" + mode_name + "_95percOfTrain_8batch_100ep"+special_name+"")
+dataset.debugger.nice_plot_history(history, show=False, save=True, name="model_UNet-Resnet34_" + mode_name + "_95percOfTrain_8batch_"+str(EPOCHS)+"ep"+special_name+"")

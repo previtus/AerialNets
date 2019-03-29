@@ -15,6 +15,8 @@ if not('DISPLAY' in os.environ):
 
 
 load_from = "model_UNet-Resnet34_SemSeg_95percOfTrain_8batch_15ep111only0.2dataset.h5" # predicting labels, as softmax
+#load_from = "model_UNet-Resnet34_SemSeg_95percOfTrain_8batch_100ep111only0.2dataset.h5"
+#load_from = "model_UNet-Resnet34_SemSeg_95percOfTrain_8batch_20ep111only0.2dataset.h5" # hoping that this is before it overfits? NOPE
 learn_dsm = False
 
 ### DATA ##########################################################################################
@@ -65,12 +67,12 @@ for I in range(0,N,20):
       x_val_pred = x_val_pred[:,:,:,0]
    else:
       label2color = {}
-      label2color[0] = [255, 255, 255]  # Impervious surfaces
-      label2color[1] = [0, 0, 255]  # Building = blue
-      label2color[2] = [0, 255, 255]  # Low vegetation
-      label2color[3] = [0, 255, 0]  # Tree = green
-      label2color[4] = [255, 255, 0]  # Car
-      label2color[5] = [255, 0, 0]  # Clutter/background
+      label2color[0] = [255, 255, 255]  # Impervious surfaces = White
+      label2color[1] = [0, 0, 255]  # Building = Blue
+      label2color[2] = [0, 255, 255]  # Low vegetation = LightBlue
+      label2color[3] = [0, 255, 0]  # Tree = Green
+      label2color[4] = [255, 255, 0]  # Car = Yellow
+      label2color[5] = [255, 0, 0]  # Clutter/background = Red
 
       for i, image_softmax in enumerate(x_val_pred):
          print("image_softmax:", image_softmax.shape) # (1024, 1024, 6)
